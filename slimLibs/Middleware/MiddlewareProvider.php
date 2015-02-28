@@ -4,15 +4,15 @@ namespace Middleware;
 
 class MiddlewareProvider
 {
-    private $slimApp;
+    private $slim;
 
-    public function __construct(\Slim\Slim $slimApp)
+    public function __construct()
     {
-        $this->slimApp = $slimApp;
+        $this->slim = \Slim\Slim::getInstance();
     }
 
     public function registerMiddlewares()
     {
-        $this->slimApp->add(new Auth());
+        $this->slim->add(new Auth());
     }
 }

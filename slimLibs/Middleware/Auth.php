@@ -16,7 +16,6 @@ class Auth extends Middleware
     public function call()
     {
         $this->authenticate();
-        var_dump($this->isAuthenticated);
         if ($this->isAuthenticated) {
             return $this->next->call();
         }
