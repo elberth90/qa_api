@@ -4,15 +4,15 @@ namespace Router;
 
 class RoutesProvider
 {
-    private $slim;
+    private $di;
 
-    public function __construct(\Slim\Slim $app)
+    public function __construct(\Pimple\Container $di)
     {
-        $this->slim = $app;
+        $this->di = $di;
     }
 
     public function register()
     {
-        (new UserRoutes($this->slim))->createRoutes();
+        (new UserRoutes($this->di))->createRoutes();
     }
 }

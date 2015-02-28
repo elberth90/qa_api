@@ -15,7 +15,9 @@
             "Config": "./src/",
             "Middleware": "./slimLibs/",
             "Router": "./slimLibs/",
-            "UnitTests": "./tests/"
+            "UnitTests": "./tests/",
+            "Service": "./src/",
+            "View": "./slimLibs/"
         }
     }
 }

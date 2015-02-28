@@ -2,13 +2,18 @@
 
 namespace Router;
 
+
+use Controller\User;
+
 class UserRoutes implements Route
 {
+    private $di;
     private $slim;
 
-    public function __construct(\Slim\Slim $app)
+    public function __construct(\Pimple\Container $di)
     {
-        $this->slim = $app;
+        $this->di = $di;
+        $this->slim = \Slim\Slim::getInstance();
     }
 
     public function createRoutes()
@@ -16,8 +21,8 @@ class UserRoutes implements Route
         $this->slim->group('/user', function () {
 
             $this->slim->get('/get/:id', function ($id) {
-                echo "{$id}";
-            } );
+                (new User($this->di))->get($id);
+            });
 
         });
 
